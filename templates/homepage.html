@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Welcome to Todo</h1>
+
+    <button class="btn" style="background-color:blue; color:black;"  type="submit"><a href="{% url 'register' %}">Register</a></button>
+
+    <button class="btn" style="background-color:blue; color:black;" type="submit"><a href="{% url 'login' %}">Log In</a></button>
+
+
+{% endblock content %}

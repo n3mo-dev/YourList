@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+   <div>
+    <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Log Out</a>
+   </div>
+
+
+   <form action="/addtodo/" method="POST" >
+    {% csrf_token %}
+        <input type="text" name="data" />
+        <input type="submit" value="Add" />
+    </form> 
+
+
+
+   <ul>
+    {% for item in item %}
+        <li>{{ item.Data.user }}
+            <form action="/deletetodo/{{ item.id }}/" 
+                  style="display: inline;" 
+                  method="POST" >
+                {% csrf_token %}
+                <input type="submit" value="Delete" />
+            </form> 
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock content %}
