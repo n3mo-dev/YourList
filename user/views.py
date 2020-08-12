@@ -24,13 +24,14 @@ def register(request):
 
 @login_required
 def profile(request):
-    if request.user.is_authenticated:
-        item = Todo.objects.filter(user=request.user)
-        return item
+    user = request.user 
+    item = Todo.objects.filter(user=user)
+    
     return render(request, 'profile.html',  { 'item' : item })
 
 def addtodo(request):
-    item = Todo(Data = request.POST['data'])
+    data = request.POST['data']
+    item = Todo(Data=data)
     item.save()
     return HttpResponseRedirect('/profile/')
 

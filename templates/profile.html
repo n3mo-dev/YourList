@@ -15,7 +15,7 @@
 
    <ul>
     {% for item in item %}
-        <li>{{ item.Data.user }}
+        <li>{{ item.Data }}
             <form action="/deletetodo/{{ item.id }}/" 
                   style="display: inline;" 
                   method="POST" >
